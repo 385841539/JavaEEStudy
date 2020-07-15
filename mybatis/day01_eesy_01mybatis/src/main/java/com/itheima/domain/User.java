@@ -1,15 +1,16 @@
 package com.itheima.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class User  implements Serializable {
+public class User implements Serializable {
 
 
     private Integer id;
-    private String  username;
-    private String  birthday;
-    private String  sex;
-    private String  address;
+    private String username;
+    private Date birthday;
+    private String sex;
+    private String address;
 
     @Override
     public String toString() {
@@ -38,11 +39,11 @@ public class User  implements Serializable {
         this.username = username;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
