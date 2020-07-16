@@ -1,7 +1,7 @@
-package com.itheima.ui;
+package com.itheimaioc.ui;
 
-import com.itheima.service.IAccountService;
-import com.itheima.service.impl.AccountServiceImpl;
+import com.itheimaioc.dao.IAccountDao;
+import com.itheimaioc.service.IAccountService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -19,9 +19,13 @@ public class Client {
 
         //根据id获取bean 对象
 //        IAccountService as = (IAccountService) applicationContext.getBean("accountService");
-        IAccountService as = (IAccountService) applicationContext.getBean("accountService3");
-        System.out.println(as);
-        as.saveAccount();
+        IAccountService as = (IAccountService) applicationContext.getBean("accountServiceImpl");
+//        IAccountService as2 = (IAccountService) applicationContext.getBean("accountServiceImpl");
+        IAccountDao accountDaoImpl = (IAccountDao) applicationContext.getBean("accountDaoImpl");
+//        System.out.println(as==as2);
+//        as.saveAccount();
+
+//        accountDaoImpl.saveAcount();
 
         ((ClassPathXmlApplicationContext) applicationContext).close();
 
