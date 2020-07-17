@@ -32,13 +32,13 @@ public class JdbcConfig {
 
     @Bean
 //    @Scope("${prototype}")
-    public QueryRunner createQueryRunner(@Qualifier("db1") DataSource dataSource) {
+    public QueryRunner createQueryRunner( DataSource dataSource) {
 
         return new QueryRunner(dataSource);
     }
 
 
-    @Bean("db1")
+    @Bean
     public DataSource createDataSource() throws PropertyVetoException {
 
 
@@ -58,22 +58,22 @@ public class JdbcConfig {
     }
 
 
-    @Bean
-    public DataSource createDataSource2() throws PropertyVetoException {
-
-
-        ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
-
-//        comboPooledDataSource.setDriverClass("com.mysql.jdbc.Driver");
-//        comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/eesy");
-//        comboPooledDataSource.setUser("root");
-//        comboPooledDataSource.setPassword("111111");
+//    @Bean
+//    public DataSource createDataSource2() throws PropertyVetoException {
 //
-        comboPooledDataSource.setDriverClass(driver);
-        comboPooledDataSource.setJdbcUrl("jdbc.jdbcUrl=jdbc:mysql://localhost:3306/eesy02");
-        comboPooledDataSource.setUser(name);
-        comboPooledDataSource.setPassword(password);
-        return  comboPooledDataSource;
-
-    }
+//
+//        ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
+//
+////        comboPooledDataSource.setDriverClass("com.mysql.jdbc.Driver");
+////        comboPooledDataSource.setJdbcUrl("jdbc:mysql://localhost:3306/eesy");
+////        comboPooledDataSource.setUser("root");
+////        comboPooledDataSource.setPassword("111111");
+////
+//        comboPooledDataSource.setDriverClass(driver);
+//        comboPooledDataSource.setJdbcUrl("jdbc.jdbcUrl=jdbc:mysql://localhost:3306/eesy02");
+//        comboPooledDataSource.setUser(name);
+//        comboPooledDataSource.setPassword(password);
+//        return  comboPooledDataSource;
+//
+//    }
 }

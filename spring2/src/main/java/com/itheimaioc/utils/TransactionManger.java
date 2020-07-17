@@ -1,9 +1,12 @@
 package com.itheimaioc.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 
+
+@Component
 public class TransactionManger {
 
 

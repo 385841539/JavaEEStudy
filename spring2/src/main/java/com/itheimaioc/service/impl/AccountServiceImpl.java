@@ -3,7 +3,9 @@ package com.itheimaioc.service.impl;
 import com.itheimaioc.dao.IAccountDao;
 import com.itheimaioc.domain.Account;
 import com.itheimaioc.service.IAccountService;
+import com.itheimaioc.utils.TransactionManger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -24,6 +26,12 @@ public class AccountServiceImpl implements IAccountService {
 
     @Autowired
     private IAccountDao accountDao;
+
+
+    @Autowired
+    private TransactionManger transactionManger;
+
+
 
     public void setAccountDao(IAccountDao accountDao) {
         this.accountDao = accountDao;
@@ -57,20 +65,33 @@ public class AccountServiceImpl implements IAccountService {
     public void transfer(String sourceName, String targetName, Float money) {
 
 
-        Account sourceAccount = accountDao.findAccountByName(sourceName);
-        Account targetAccount = accountDao.findAccountByName(targetName);
+        try {
 
-        sourceAccount.setMoney(sourceAccount.getMoney()-money);
+            transactionManger.beginTransaction();
 
-        targetAccount.setMoney(targetAccount.getMoney()+money);
+            Account sourceAccount = accountDao.findAccountByName(sourceName);
+            Account targetAccount = accountDao.findAccountByName(targetName);
+
+            sourceAccount.setMoney(sourceAccount.getMoney()-money);
+
+            targetAccount.setMoney(targetAccount.getMoney()+money);
 
 
-        accountDao.updateAccount(sourceAccount);
+            accountDao.updateAccount(sourceAccount);
 
 
-        int i=1/0;
-        accountDao.updateAccount(targetAccount);
+//            int i=1/0;
+            accountDao.updateAccount(targetAccount);
 
-        System.out.println("转账成功....");
+            System.out.println("转账成功....");
+
+            transactionManger.commit();
+        }catch (Exception e){
+
+            transactionManger.rollback();
+        }finally {
+
+        }
+
     }
 }

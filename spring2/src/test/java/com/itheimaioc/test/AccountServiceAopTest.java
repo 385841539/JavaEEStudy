@@ -24,6 +24,14 @@ public class AccountServiceAopTest {
 
 
     @Test
+    public void findAll(){
+        List<Account> allAccount = as.findAllAccount();
+        for (int i = 0; i < allAccount.size(); i++) {
+            System.out.println(allAccount.get(i).toString());
+        }
+    }
+
+    @Test
     public void testTransfer(){
 
         as.transfer("aaa","bbb",200.0f);
