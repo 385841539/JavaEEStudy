@@ -3,7 +3,7 @@ package com.config;
 
 import org.springframework.context.annotation.*;
 
-@ComponentScan("com.itheimaioc")
+@ComponentScan({"com.itheimaioc","com.itheimaaop"})
 @Import(JdbcConfig.class)
 @PropertySource("classpath:jdbcConfig.properties")
 public class Config {
