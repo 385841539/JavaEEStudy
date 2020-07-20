@@ -2,6 +2,7 @@ package com.itheimaioc.service.impl;
 
 import com.itheimaioc.dao.IAccountDao;
 import com.itheimaioc.domain.Account;
+import com.itheimaioc.proxy.MyBeanFactory;
 import com.itheimaioc.service.IAccountService;
 import com.itheimaioc.utils.TransactionManger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,6 @@ public class AccountServiceImpl implements IAccountService {
 
     @Autowired
     private IAccountDao accountDao;
-
-
-    @Autowired
-    private TransactionManger transactionManger;
-
-
 
     public void setAccountDao(IAccountDao accountDao) {
         this.accountDao = accountDao;
@@ -64,11 +59,6 @@ public class AccountServiceImpl implements IAccountService {
 
     public void transfer(String sourceName, String targetName, Float money) {
 
-
-        try {
-
-            transactionManger.beginTransaction();
-
             Account sourceAccount = accountDao.findAccountByName(sourceName);
             Account targetAccount = accountDao.findAccountByName(targetName);
 
@@ -85,13 +75,7 @@ public class AccountServiceImpl implements IAccountService {
 
             System.out.println("转账成功....");
 
-            transactionManger.commit();
-        }catch (Exception e){
 
-            transactionManger.rollback();
-        }finally {
-
-        }
 
     }
 }

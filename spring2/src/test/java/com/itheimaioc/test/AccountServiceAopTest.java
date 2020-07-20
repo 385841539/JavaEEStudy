@@ -2,9 +2,12 @@ package com.itheimaioc.test;
 
 import com.config.Config;
 import com.itheimaioc.domain.Account;
+import com.itheimaioc.proxy.MyBeanFactory;
 import com.itheimaioc.service.IAccountService;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,10 +21,18 @@ public class AccountServiceAopTest {
 
 
 
-    @Autowired
+//    @Autowired
     private IAccountService as;
 
+    @Autowired
+    MyBeanFactory myBeanFactory;
 
+
+    @Before
+    public void  init(){
+
+        as=myBeanFactory.getiAccountService();
+    }
 
     @Test
     public void findAll(){
