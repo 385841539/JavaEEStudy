@@ -1,5 +1,7 @@
 package com.itheimaioc.utils;
 
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -7,12 +9,19 @@ import java.sql.SQLException;
 
 
 @Component
+@Aspect
 public class TransactionManger {
 
 
 
     @Autowired
     private ConnectionUtils connectionUtils;
+
+
+    @Pointcut("execution( * com.itheimaaop.service.impl.*.*(..))")
+    private void pt1(){
+
+    }
 
     public  void beginTransaction(){
 
