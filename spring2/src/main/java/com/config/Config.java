@@ -2,10 +2,12 @@ package com.config;
 
 
 import org.springframework.context.annotation.*;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @ComponentScan({"com.itheimaioc","com.itheimaaop"})
-@Import(JdbcConfig.class)
+@Import({JdbcConfig.class,JdbcConfig.class})
 @PropertySource("classpath:jdbcConfig.properties")
+@EnableTransactionManagement
 public class Config {
 //
 //
