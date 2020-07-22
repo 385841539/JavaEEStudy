@@ -1,0 +1,33 @@
+#普通数据的配置
+name: zhangsan
+
+#对象的配置
+server:
+  port: 8082
+
+person: {name: zhangsan, age: 18, addr: beijing}
+
+
+#配置数组、集合
+city:
+  - beijing
+  - tianjing
+  - chongqing
+  - shanghai
+
+
+#city2: [beijing,tianjing,chongqing,shanghai]
+
+
+#对象的集合
+student:
+  - name: tom
+    age: 18
+    add: beijing
+
+
+
+#map配置
+map:
+  key1: 11
+  key2: 22

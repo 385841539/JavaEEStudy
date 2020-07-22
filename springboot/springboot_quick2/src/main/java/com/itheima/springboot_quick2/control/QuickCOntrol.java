@@ -10,7 +10,7 @@ public class QuickCOntrol {
 
 
 
-    @RequestMapping("/quick")
+    @RequestMapping("/quick2")
     @ResponseBody
     public String quick(){/**/
         return  "hello springbo；旅客巨化股份ot ，你好 ！！！  哈哈 quick2";
