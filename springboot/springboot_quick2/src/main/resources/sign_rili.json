@@ -1,0 +1,65 @@
+{
+  "code": 0,
+  "msg": "success",
+  "result": {
+    "signInDays": 14,
+    "signInInfoList": [
+      {
+        "date": "11/10",
+        "integral": 1,
+        "status": 0,
+        "todaySign": false,
+        "dateText": "11.10",
+        "reSignInText": "补签消耗20积分"
+      },
+      {
+        "date": "11/11",
+        "integral": 11,
+        "status": 2,
+        "todaySign": false,
+        "dateText": "11.11",
+        "reSignInText": "补签消耗20积分"
+      },
+      {
+        "date": "11/12",
+        "integral": 10,
+        "status": 3,
+        "todaySign": false,
+        "dateText": "11.12",
+        "reSignInText": "补签消耗20积分"
+      },
+      {
+        "date": "11/13",
+        "integral": 2,
+        "status": 2,
+        "todaySign": false,
+        "dateText": "11.13",
+        "reSignInText": "补签消耗20积分"
+      },
+      {
+        "date": "11/14",
+        "integral": 10,
+        "status": 1,
+        "todaySign": true,
+        "dateText": "11.14",
+        "reSignInText": "补签消耗20积分"
+      },
+      {
+        "date": "11/15",
+        "integral": 10,
+        "status": 1,
+        "todaySign": false,
+        "dateText": "11.15",
+        "reSignInText": "补签消耗20积分"
+      },
+      {
+        "date": "11/16",
+        "integral": 10,
+        "status": 1,
+        "todaySign": false,
+        "dateText": "11.16",
+        "reSignInText": "补签消耗20积分"
+      }
+    ]
+  }
+}
